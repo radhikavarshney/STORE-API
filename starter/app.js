@@ -8,6 +8,8 @@ const connectDB = require('./db/connect')
 const notFoundMiddleware = require('./middleware/not-found')
 const errorMiddleware = require('./middleware/error-handler')
 
+const productsRouter = require('./routes/products')
+
 
 //invoking express
 app.use(exp.json())
@@ -15,9 +17,9 @@ app.use(exp.json())
 //routes
 
 app.get(('/'), (req,res)=>{
-    res.send('<h1>hella yeah its working bitch </h1><a href="/api/v1/product">Products Route</a>')
+    res.send('<h1>hella yeah its working bitch </h1><a href="/api/v1/products">Products Route</a>')
 })
-app.use('/api/v1/products')
+app.use('/api/v1/products',productsRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
