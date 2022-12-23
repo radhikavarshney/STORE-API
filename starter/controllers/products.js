@@ -20,7 +20,7 @@ const getAllProducts = async (req,res)=>{
         queryObject.name = name 
 
     }
-if(featured){
+    if(featured){
     queryObject.featured = featured === 'true' ? true :false
 }  
 console.log(queryObject);
